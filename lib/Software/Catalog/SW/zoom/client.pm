@@ -90,6 +90,7 @@ sub latest_version {
     my ($self, %args) = @_;
 
     extract_from_url(
+        # zoom website checks User-Agent string to offer download choices
         agent =>"LWP::UserAgent ($Config{archname})",
         url => "https://zoom.us/download",
         re  => qr{<span class="linux-ver-text"[^>]*>Version ([^<]+)</span>},
